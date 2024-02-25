@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <title>Test handlebars</title>
+  </head>
+  <body>
+    {#
+    <header
+      class="fixed top-0 left-0 w-full bg-white z-20 border-b-2 border-marseille_agency"
+    >
+      <div class="stop2xl text-marseille_agency row justify-between p-5 xs:p-6">
+        <a href="/" class="self-center">
+          <img
+            src="./assets/images/logos/Logo-Audit-Process.avif"
+            alt="Logo de l'entreprise Audit Process"
+            class="h-9 xs:h-10 sm:h-11 lg:h-12"
+          />
+        </a>
+        <nav class="nav translate-x-full xl:translate-x-0" id="nav">
+          <span
+            class="cursor-pointer text-black text-6xl fixed top-0 right-5 xl:hidden"
+            id="close_nav"
+            >&times;</span
+          >
+          <ul
+            class="xl:row col gap-3 xl:gap-10 mt-5 ml-5 xl:self-center xl:m-0"
+          >
+            <li>
+              <p
+                id="audit_process_link"
+                class="cursor-pointer hover:text-paris_agency"
+              >
+                L'entreprise
+              </p>
+            </li>
+            <li>
+              <p
+                id="nos_services_link"
+                class="cursor-pointer hover:text-paris_agency duration-200"
+              >
+                Nos services
+              </p>
+            </li>
+            <li>
+              <a href="/realisation-de-formations">Formations</a>
+            </li>
+            <li>
+              <a href="/#recrutement">Recrutement</a>
+            </li>
+            <li class="xl:hidden">
+              <a href="/contactez-nous">Contactez-nous</a>
+            </li>
+          </ul>
+        </nav>
+        <span
+          class="cursor-pointer text-4xl text-black font-extrabold self-center xl:hidden"
+          id="open_nav"
+        >
+        </span>
+        <a
+          href="/contactez-nous"
+          class="hidden xl:block self-center font-semibold text-xl py-4 px-8 border-2 border-marseille_agency rounded-full hover:bg-marseille_agency hover:text-white"
+          >Contactez-nous</a
+        >
+      </div>
+    </header>
+    #} {#
+    <div id="page"></div>
+    <button onclick="link('home')">home</button>
+    <button onclick="link('contact')">contact</button>
+    <button onclick="link('activity')">activity</button> #}
+    <script src="./src/main.js"></script>
+    <script src="./src/router.js"></script>
+  </body>
+</html>

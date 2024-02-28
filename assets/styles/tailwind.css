@@ -6,6 +6,15 @@
   * {
     @apply p-0 m-0 box-border;
   }
+  h1 {
+    @apply text-4xl uppercase font-semibold xs:text-5xl sm:text-6xl lg:text-7xl;
+  }
+  h2 {
+    @apply text-2xl uppercase font-semibold xs:text-3xl sm:text-4xl lg:text-5xl;
+  }
+  h3 {
+    @apply text-xl uppercase font-semibold xs:text-2xl sm:text-3xl lg:text-4xl;
+  }
   .row {
     @apply flex flex-row;
   }
@@ -21,6 +30,9 @@
   .row-around {
     @apply flex flex-row justify-around;
   }
+  .row-evenly {
+    @apply flex flex-row justify-evenly;
+  }
   .row-full-center {
     @apply flex flex-row justify-center items-center;
   }
@@ -29,6 +41,9 @@
   }
   .row-around-center {
     @apply flex flex-row justify-around items-center;
+  }
+  .row-evenly-center {
+    @apply flex flex-row justify-evenly items-center;
   }
   .col {
     @apply flex flex-col;
@@ -45,6 +60,9 @@
   .col-around {
     @apply flex flex-col justify-around;
   }
+  .col-evenly {
+    @apply flex flex-col justify-evenly;
+  }
   .col-full-center {
     @apply flex flex-col justify-center items-center;
   }
@@ -53,6 +71,9 @@
   }
   .col-around-center {
     @apply flex flex-col justify-around items-center;
+  }
+  .col-evenly-center {
+    @apply flex flex-col justify-evenly items-center;
   }
   .wrap {
     @apply flex flex-wrap;
@@ -80,5 +101,42 @@
   }
   .fixed-v-center {
     @apply fixed top-1/2 -translate-x-1/2;
+  }
+  footer a,
+  header a,
+  aside a {
+    @apply lg:hover:text-paris_agency lg:duration-200;
+  }
+  .stop2xl {
+    @apply 2xl:w-[1536px] 2xl:mx-auto;
+  }
+  .stopxl {
+    @apply xl:w-[1280px] xl:mx-auto;
+  }
+  .stoplg {
+    @apply lg:w-[1024px] lg:mx-auto;
+  }
+  .stopmd {
+    @apply md:w-[768px] md:mx-auto;
+  }
+  .pad {
+    @apply p-5 xs:p-6 sm:p-7 lg:p-8;
+  }
+  .gap {
+    @apply gap-5 xs:gap-6 sm:gap-7 lg:gap-8;
+  }
+  .agency {
+    @apply col gap sm:row sm:text-justify lg:col lg:text-center;
+  }
+  .agency-img {
+    @apply w-48 mx-auto sm:mx-0 lg:mx-auto;
+  }
+  .label-input {
+    @apply col gap-4;
+  }
+  input,
+  select,
+  textarea {
+    @apply p-2 rounded-md border;
   }
 }

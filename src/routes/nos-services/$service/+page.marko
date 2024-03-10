@@ -1,0 +1,28 @@
+import info from "../../../info.json";
+
+$ const foundService = info.services.find(
+    (service) => service.slug === $global.params.service,
+);
+<app-header isNavOff/>
+<main>
+    <max-width>
+        <div class="row service">
+            <service-aside/>
+            <div class="line"/>
+            <service-content service=foundService/>
+        </div>
+    </max-width>
+</main>
+style {
+    main {
+        margin-top: 68px;
+    }
+    .service {
+        gap: 100px;
+        padding-block: 100px;
+    }
+    .line {
+        width: 4px;
+        background: #e5e7eb;
+    }
+}

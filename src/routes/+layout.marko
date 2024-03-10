@@ -1,0 +1,283 @@
+import info from "../info.json";
+$ const foundService = info.services.find(
+  (service) => service.slug === $global.params.service,
+);
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content=(foundService ? foundService.objectives : $global.meta.title) ||
+      "Erreur"
+    >
+    <title>
+      ${(foundService ? foundService.name : $global.meta.title) || "Erreur"}
+    </title>
+  </head>
+  <body>
+    <${input.renderBody}/>
+    <app-footer/>
+    <script>
+      const isElementInViewport = (element) => {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.top <=
+            (window.innerHeight || document.documentElement.clientHeight)
+        );
+      };
+
+      const animatedLeft = document.querySelectorAll(".animated-left");
+      const animatedRight = document.querySelectorAll(".animated-right");
+      const animatedBottom = document.querySelectorAll(".animated-bottom");
+      const animatedElements = Array.from(animatedLeft).concat(
+        Array.from(animatedRight),
+        Array.from(animatedBottom),
+      );
+
+      const animateOnScroll = () => {
+        animatedElements.forEach((element) => {
+          if (isElementInViewport(element)) {
+            if (
+              element.classList.contains("animated-left") ||
+              element.classList.contains("animated-right")
+            ) {
+              element.classList.add("animated-x-active");
+            } else if (element.classList.contains("animated-bottom")) {
+              element.classList.add("animated-y-active");
+            }
+          }
+        });
+      };
+
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+    </script>
+  </body>
+</html>
+style {
+  * {
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    /* font-family: system-ui; */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* color: #fff;
+    background: #15151e; */
+  }
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  section {
+    padding-block: 150px;
+  }
+  ul {
+    list-style: none;
+  }
+  .animated-left {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  .animated-bottom {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  .animated-right {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .animated-x-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 2000ms;
+  }
+  .animated-y-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 2000ms;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+  }
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .content-center {
+    justify-content: center;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .around {
+    justify-content: space-around;
+  }
+  .evenly {
+    justify-content: space-evenly;
+  }
+  .between {
+    justify-content: space-between;
+  }
+  .full-center {
+    justify-content: center;
+    align-items: center;
+  }
+  .between-center {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .around-center {
+    justify-content: space-around;
+    align-items: center;
+  }
+  .evenly-center {
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  @media (min-width: 640x) {
+    .sm-row {
+      display: flex;
+      flex-direction: row;
+    }
+    .sm-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .sm-wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .sm-content-center {
+      justify-content: center;
+    }
+    .sm-items-center {
+      align-items: center;
+    }
+    .sm-around {
+      justify-content: space-around;
+    }
+    .sm-evenly {
+      justify-content: space-evenly;
+    }
+    .sm-between {
+      justify-content: space-between;
+    }
+    .sm-full-center {
+      justify-content: center;
+      align-items: center;
+    }
+    .sm-between-center {
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sm-around-center {
+      justify-content: space-around;
+      align-items: center;
+    }
+    .sm-evenly-center {
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md-row {
+      display: flex;
+      flex-direction: row;
+    }
+    .md-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .md-wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .md-content-center {
+      justify-content: center;
+    }
+    .md-items-center {
+      align-items: center;
+    }
+    .md-around {
+      justify-content: space-around;
+    }
+    .md-evenly {
+      justify-content: space-evenly;
+    }
+    .md-between {
+      justify-content: space-between;
+    }
+    .md-full-center {
+      justify-content: center;
+      align-items: center;
+    }
+    .md-between-center {
+      justify-content: space-between;
+      align-items: center;
+    }
+    .md-around-center {
+      justify-content: space-around;
+      align-items: center;
+    }
+    .md-evenly-center {
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+  @media (min-width: 1024px) {
+    .lg-row {
+      display: flex;
+      flex-direction: row;
+    }
+    .lg-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .lg-wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .lg-content-center {
+      justify-content: center;
+    }
+    .lg-items-center {
+      align-items: center;
+    }
+    .lg-around {
+      justify-content: space-around;
+    }
+    .lg-evenly {
+      justify-content: space-evenly;
+    }
+    .lg-between {
+      justify-content: space-between;
+    }
+    .lg-full-center {
+      justify-content: center;
+      align-items: center;
+    }
+    .lg-between-center {
+      justify-content: space-between;
+      align-items: center;
+    }
+    .lg-around-center {
+      justify-content: space-around;
+      align-items: center;
+    }
+    .lg-evenly-center {
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+}

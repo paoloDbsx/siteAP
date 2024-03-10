@@ -1,0 +1,56 @@
+<macro|{ href, src, alt }| name="footer-link">
+     <li>
+        <a href=href>
+            <img
+                src=src
+                alt=alt
+                class="footer-img"
+            >
+        </a>
+    </li>
+</macro>
+
+<footer>
+    <max-width>
+        <div class="col items-center footer-container">
+            <img
+                src="/images/logos/Logo-Audit-Process.avif"
+                alt="Logo Audit Process"
+                class="footer-logo"
+            >
+            <ul class="row content-center">
+                <footer-link href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAAA9k2-gBxmdIpjNWR5DrSVg0mMkSh1zsg24&keywords=benedicte%20manifacier&origin=RICH_QUERY_SUGGESTION&position=0&searchId=e8dcbffe-10c7-4d89-8396-dd7386a2bdab&sid=Uz2&spellCorrectionEnabled=false" 
+                    src="/images/icons/linkedin.png"
+                    alt="Logo LinkedIn"
+                />
+                <footer-link href="mailto:contact@audit-process.fr"
+                    src="/images/icons/mail.png"
+                    alt="Logo mail"
+                />
+                <footer-link href="/contactez-nous"
+                    src="/images/icons/user-interface.png"
+                    alt="Logo formulaire"
+                />
+            </ul>
+            <span>&copy; Audit Process 2024 - Tous droits réservés</span>
+        </div>
+    </max-width>
+</footer>
+style {
+    footer {
+        padding-bottom: 24px;
+    }
+    .footer-container {
+        gap: 24px;
+        color: #6b7280;
+    }
+    .footer-logo {
+        width: 100px;
+    }
+    .footer-img {
+        width: 30px;
+    }
+    footer ul {
+        gap: 24px;
+    }
+}

@@ -1,0 +1,71 @@
+import info from "../../info.json";
+
+<section id="nos-services" class="services-section">
+    <max-width>
+        <div class="col services">
+            <h2 class="services-h2 animated-bottom">
+                Nos services
+            </h2>
+            <ul class="services-ul wrap content-center">
+                <for|service| of=info.services>
+                    <li class="animated-bottom" key=service.id>
+                        <div class="services-li">
+                            <a
+                                class="col full-center services-a"
+                                href=`/nos-services/${service.slug}`
+                            >
+                                <span>${service.name}</span>
+                                <img
+                                    src=service.icon
+                                    alt=service.icon_alt
+                                    class="services-icon"
+                                >
+                            </a>
+                        </div>
+                    </li>
+                </for>
+            </ul>
+        </div>
+    </max-width>
+</section>
+style {
+    .services-section {
+        background: center / cover no-repeat
+            url("/images/others/bg-activities.avif");
+    }
+    .services {
+        gap: 68px;
+    }
+    .services-h2 {
+        font-size: 48px;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .services-ul {
+        list-style: none;
+        gap: 48px;
+    }
+    .services-li {
+        background: white;
+        border-radius: 8px;
+        transition: 200ms;
+    }
+    .services-li:hover {
+        transform: scale(1.05);
+    }
+    .services-a {
+        text-decoration: none;
+        color: #025fae;
+        gap: 24px;
+        padding: 12px;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        width: 390px;
+        height: 230px;
+    }
+    .services-icon {
+        width: 100px;
+    }
+}

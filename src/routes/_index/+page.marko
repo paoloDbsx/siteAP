@@ -1,0 +1,51 @@
+class {
+    onCreate() {
+        this.state = {
+            isNavOff: false,
+        };
+    }
+    onMount() {
+        const header = document.querySelector("header");
+        const navContact = document.querySelector(".nav-contact");
+        const navAs = document.querySelectorAll(".nav-a");
+        const headerHeight = header.clientHeight;
+
+        this.state.isNavOff =
+            headerHeight <
+                window.scrollY || document.documentElement.scrollTop;
+     
+        const switchNavOff = () => {
+            let scrollTop =
+                window.scrollY || document.documentElement.scrollTop;
+            if (headerHeight > scrollTop) {
+                header.classList.add("header-index");
+               navContact
+                    .classList.add("nav-contact-index");
+                navAs
+                    .forEach((a) => a.classList.add("nav-a-index"));
+                this.state.isNavOff = false;
+            } else {
+                header.classList.remove("header-index");
+               navContact
+                    .classList.remove("nav-contact-index");
+                navAs
+                    .forEach((a) => a.classList.remove("nav-a-index"));
+                this.state.isNavOff = true;
+            }
+        };
+        window.addEventListener("load", switchNavOff);
+        window.addEventListener("scroll", switchNavOff);
+    }
+    onDestroy() {
+        window.removeEventListener("load", switchNavOff);
+        window.removeEventListener("scroll", switchNavOff);
+    }
+}
+
+<app-header isNavOff=state.isNavOff/>
+<main>
+    <index-intro/>
+    <index-entreprise/>
+    <index-services/>
+    <index-hiring/>
+</main>

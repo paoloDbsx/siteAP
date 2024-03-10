@@ -1,0 +1,62 @@
+<section id="service-section" class="col">
+    <h2 class="animated-bottom">
+        ${input.service.name}
+    </h2>
+    <p class="objectives animated-bottom">
+        Objectifs : ${input.service.objectives}
+    </p>
+    <div class="row evenly-center animated-right">
+        <img
+            src="/images/final/entreprise1.avif"
+            alt="Intérieur d'une Chaufferie"
+            class="entreprise-img"
+        >
+        <img
+            src="/images/final/entreprise2.avif"
+            alt="Deux hommes discutent sur un chantier"
+            class="entreprise-img"
+        >
+    </div>
+    <p class=`objectives animated-bottom ${!input.service.before_list && "list-hidden"}`>
+        ${input.service.before_list}
+    </p>
+    <ul class="col">
+        <for|element| of=(input.service.list)>
+            <li key=element class="animated-bottom">
+                ${element}
+            </li>
+        </for>
+    </ul>
+    <p class=`objectives animated-bottom ${!input.service.after_list && "list-hidden"}`>
+        ${input.service.after_list}
+    </p>
+    <qb/>
+</section>
+style {
+    #service-section {
+        padding-block: 0;
+        text-align: justify;
+        gap: 36px;
+        color: #6b7280;
+        font-size: 20px;
+    }
+    #service-section .objectives {
+        line-height: 28px;
+    }
+    #service-section ul {
+        gap: 12px;
+        list-style-type: disc;
+    }
+    .entreprise-img {
+        width: 300px;
+    }
+    #service-section h2 {
+        font-size: 36px;
+        line-height: 40px;
+        color: #111827;
+        text-transform: uppercase;
+    }
+    .list-hidden {
+        display: none;
+    }
+}

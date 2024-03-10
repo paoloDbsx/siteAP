@@ -1,0 +1,256 @@
+{
+  "jobs": [
+    "Poste de dessinateur Autocad",
+    "Poste de Technicien contrôle réseau d'eau"
+  ],
+  "messageStatus": [
+    "Renseignement",
+    "Problèmes technique",
+    "Candidature",
+    "Partenariat"
+  ],
+  "places": [
+    "Île-de-France",
+    "Centre-Val de Loire",
+    "Bourgogne-Franche-Comté",
+    "Normandie",
+    "Hauts-de-France",
+    "Grand Est",
+    "Pays de la Loire",
+    "Bretagne",
+    "Nouvelle-Aquitaine",
+    "Occitanie",
+    "Auvergne-Rhône-Alpes",
+    "Provence-Alpes-Côte d'Azur",
+    "Corse",
+    "Guadeloupe",
+    "Martinique",
+    "Guyane",
+    "La Réunion",
+    "Mayotte"
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Diagnostic technique des réseaux sanitaires / Étude hydraulique",
+      "slug": "diagnostic-technique-des-reseaux-sanitaires-etude-hydraulique",
+      "icon": "/images/icons/faucet.png",
+      "objectives": "Gérer les risques sanitaires liés aux réseaux d'eau. Optimiser le fonctionnement des productions d'eau chaude et des réseaux de distribution.",
+      "list": [
+        "Description de l'état actuel des installations",
+        "Étude de la production d'eau chaude",
+        "Étude des désordres et recherche des causes (températures, pressions, débits, vitesses, stagnations, corrosions, développements bactériens, odeurs …)",
+        "Mesures et enregistrements (températures, pressions, débits de circulation du réseau de bouclage)",
+        "Réalisation d'un synoptique de réseau",
+        "Étude de la maintenance et de la surveillance des installations",
+        "Établissement d'un tableau de préconisations hiérarchisées en fonction des risques identifiés",
+        "Prise en compte des contraintes réglementaires",
+        "Étude de la faisabilité de l'équilibrage du réseau de bouclage",
+        "Étude hydraulique du réseau (dimensionnement des conduites, calcul des pertes de charges et des vitesses de circulation)"
+      ],
+      "before_list": "Intervention sur site et rendu d'un rapport.",
+      "after_list": "",
+      "icon_alt": "icône d'un robinet"
+    },
+    {
+      "test": "de chaleur et d'eau glacée, des réseaux de chauffage et de climatisation",
+      "id": 2,
+      "name": "Diagnostic des productions (chaleur, eau glacée, chauffage, climatisation)",
+      "slug": "dignostic-de-production-de-chaleur-et-d-eau-glacee-des-reseaux-de-chauffage-et-de-climatisation",
+      "icon": "/images/icons/underfloor-heating.png",
+      "objectives": "Optimiser le fonctionnement des productions de chaleur et d'eau glacée ainsi que des réseaux de distribution. Améliorer l'efficacité énergétique des installations.",
+      "list": [
+        "Description de l'état actuel des installations",
+        "Étude des désordres éventuels (Température, équilibrage, vitesses, …)",
+        "Mesures et enregistrements (température, débit de circulation)",
+        "Établissement d'un tableau de préconisations hiérarchisées en fonction des risques identifiés",
+        "Étude de la maintenance et de la surveillance des installations",
+        "Prise en compte des contraintes réglementaires",
+        "Optimisation énergétique",
+        "Étude de la faisabilité de l'équilibrage du réseau",
+        "Étude hydraulique du réseau (dimensionnement des conduites, calcul des pertes de charges et des vitesses de circulation)"
+      ],
+      "before_list": "Intervention sur site et rendu d'un rapport.",
+      "after_list": "",
+      "icon_alt": "icône d'une maison dont l'intérieur est chauffée"
+    },
+    {
+      "id": 3,
+      "name": "Diagnostic des productions solaires thermiques",
+      "slug": "diagnostic-des-productions-solaires-thermiques",
+      "icon": "/images/icons/solar-panel.png",
+      "objectives": "Optimiser le fonctionnement des installations.",
+      "list": [
+        "Description de l'état actuel des installations",
+        "Étude des désordres éventuels",
+        "Mesures et enregistrements (Températures et débits de circulation",
+        "Étude de la maintenance et de la surveillance des installations",
+        "Établissement d'un tableau de préconisations hiérarchisées en fonction des risques identifiés",
+        "Prise en compte des contraintes réglementaires",
+        "Optimisation énergétique"
+      ],
+      "before_list": "Intervention sur site et rendu d'un rapport.",
+      "after_list": "",
+      "icon_alt": "icône d'un paneau solaire"
+    },
+    {
+      "id": 4,
+      "name": "Équilibrage hydraulique",
+      "slug": "equilibrage-hydraulique",
+      "icon": "/images/icons/valve.png",
+      "objectives": "",
+      "list": "",
+      "before_list": "",
+      "after_list": "",
+      "icon_alt": "icône d'une vanne d'équilibrage"
+    },
+    {
+      "id": 5,
+      "name": "Matrîse d'œuvre",
+      "slug": "maitrise-d-oeuvre",
+      "icon": "/images/icons/architect.png",
+      "objectives": "Bénéficier d'un accompagnement complet lors des travaux.",
+      "list": [
+        "Réalisation d'un APS si nécessaire (Avant Projet Sommaire)",
+        "Constitution du DCE (Dossier de Consultation des Entreprises (CCTP et DPGF)",
+        "Consultation des entreprises",
+        "Analyses des offres",
+        "Organisation des visites pendant les travaux, comprenant les réunions et l'établissement des procès-verbaux de chantier",
+        "Réception de travaux",
+        "Réalisation d'enregistrements de températures et de mesures de débit"
+      ],
+      "before_list": "AUDIT PROCESS propose un accompagnement tout au long des travaux de construction ou de rénovation.\nLes grands axes : ",
+      "after_list": "",
+      "icon_alt": "icône d'un ouvrier de chantier"
+    },
+    {
+      "id": 6,
+      "name": "Traitement et désinfection des réseaux sanitaires",
+      "slug": "traitement-et-desinfection-des-reseaux-sanitaires",
+      "icon": "/images/icons/virus.png",
+      "objectives": "Désinfecter un réseau avant mise en service (installation neuve ou rénovée). Désinfecter un réseau contaminé.",
+      "list": [
+        "Installation du matériel d'injection",
+        "Mise hors service du réseau (conformément à la réglementation)",
+        "Injection du désinfectant",
+        "Vérification du taux de concentration du désinfectant au cours de l'opération",
+        "Ouverture successive de tous les points d'eau avec maintien du taux de concentration",
+        "Mise ne contact du réseau",
+        "Rinçage des réseaux"
+      ],
+      "before_list": "Intervention sur site et rendu d'un rapport.",
+      "after_list": "",
+      "icon_alt": "icône contenant bactéries et virus"
+    },
+    {
+      "id": 7,
+      "name": "Plans de réseaux / Synoptiques",
+      "slug": "plans-de-reseaux-synoptiques",
+      "icon": "/images/icons/sketch.png",
+      "objectives": "Décrire l'organisation conceptuelle des réseaux (synoptiques). Décrire la production et les réseaux avec précision (plans).",
+      "list": [
+        "Relevés de l'ensemble des installations sur site",
+        "Établissement de plans et/ou de synoptiques sous logiciel Autocad",
+        "Éléments constitutifs des productions d'eau chaude / de chaleur / d'eau glacée",
+        "Éléments constitutifs des traitements d'eau",
+        "Réseaux de distribution",
+        "Diamètres des conduites",
+        "Éléments constitutifs des réseaux (vannes, organes d'équilibrage, ensembles de protection anti retour, organes de sécurité)"
+      ],
+      "before_list": "Intervention sur site et rendu de pièces graphiques.",
+      "after_list": "",
+      "icon_alt": "icône contenant du matériel de dessin"
+    },
+    {
+      "id": 8,
+      "name": "Diagnostic des réseaux d'eau de bassin",
+      "slug": "diagnostic-des-reseaux-d-eau-de-bassin",
+      "icon": "/images/icons/swimming-pool.png",
+      "objectives": "Résoudre des problématiques sanitaires liées aux piscines récréatives, de rééducation, aux spas et jacuzzis.",
+      "list": [
+        "Description de l'état actuel des installations",
+        "Étude du traitement de l'eau",
+        "Étude de la conception des circuits",
+        "Étude de la maintenance et de la surveillance des installations",
+        "Établissement d'un tableau de préconisations hiérarchisées en fonction des risques identifiés",
+        "Prise en compte des contraintes réglementaires"
+      ],
+      "before_list": "Intervention sur site et rendu d'un rapport.",
+      "after_list": "",
+      "icon_alt": "icône d'un bassin"
+    },
+    {
+      "id": 9,
+      "name": "Suivi du carnet sanitaire",
+      "slug": "suivi-du-carnet-sanitaire",
+      "icon": "/images/icons/open-book.png",
+      "objectives": "Assurer la traçabilité des opérations de maintenance et de surveillance des réseaux d'eau sanitaires.",
+      "list": [
+        "Étude de l'installation",
+        "Établissement des procédures en collaboration avec l'établissement",
+        "Établissement des supports de traçabilité d'informations en collaboration avec l'établissement",
+        "Livraison du carnet sanitaire et information du personnel"
+      ],
+      "before_list": "Intervention sur site et rendu d'un carnet sanitaire sous format papier et informatique",
+      "after_list": "Le carnet sanitaire est un document papier ou informatique destiné à conserver la traçabilité des interventions sur les réseaux d'eau sanitaire (surveillance, intervention de sociétés extérieures, résultats d'analyses d'eau, consommations ...). Le document est adapté à l'installation concernée. Parallèlement, une formation au risque légionelles et à l'utilisation du carnet sanitaire peut être réalisée (N° agrément d'AUDIT PROCESS : 93131271513). Plusieurs niveaux de formation sont proposés en fonction du public concernée.",
+      "icon_alt": "icône d'un carnet"
+    },
+    {
+      "id": 10,
+      "name": "Enregistrement des températures en continu d'un réseau d'eau",
+      "slug": "enregistrement-des-temperatures-en-continu-d-un-reseau-d-eau",
+      "icon": "/images/icons/temperature-control.png",
+      "objectives": "Assurer la traçabilité des températures d'un réseau sanitaire. Obtenir une interprétation des résultats sur le plan technique et sanitaire.",
+      "list": [
+        "Analyses des besoins",
+        "Test du matériel du site",
+        "Installation du matériel et mise en service",
+        "Suivi des valeurs et envoi d'un rapport à fréquence adaptée à chaque établissement",
+        "Interprétation des températures sur le plan technique et sanitaire",
+        "Gestion des alertes, mise en place de seuils hauts ou bas"
+      ],
+      "before_list": "AUDIT PROCESS propose un système de relevé automatique et à distance des températures des installations de production et de distribution d'eau chaude sanitaire.",
+      "after_list": "Rappel : la maîtrise de la température d'un réseau d'eau chaude sanitaire est la solution technique et réglementaire principale dans la maîtrise du risque légionelle.",
+      "icon_alt": "icône d'un thermometre"
+    },
+    {
+      "id": 11,
+      "name": "Réalisation de formations",
+      "slug": "realisation-de-formations",
+      "icon": "/images/icons/teacher.png",
+      "objectives": "Former son personnel aux problématiques techniques et sanitaires des réseaux hydrauliques.\nCertification QUALIOPI - Référencement DATADOCK.",
+      "list": [
+        "Formation au risque Légionelles dans les réseaux sanitaires",
+        "Formation à la mise en place et à la tenue du carnet sanitaire pour les réseaux d'eau sanitaire",
+        "Formation à la mise en place et à la tenue du carnet suivi pour les eaux bassins",
+        "Formation technique aux opérations de maintenance, de surveillance et d'entretien d'un réseau d'eau sanitaire",
+        "Formation au risque Légionelles dans les tours aéro-réfrigérantes (TAR)"
+      ],
+      "before_list": "Plusieurs thèmes de formations sont à la disposition des gestionnaires de réseaux d'eau.",
+      "after_list": "",
+      "icon_alt": "icône d'un enseignant"
+    },
+    {
+      "id": 12,
+      "name": "Analyses des risques",
+      "slug": "analyses-des-risques",
+      "icon": "/images/icons/magnifying-glass.png",
+      "objectives": "",
+      "list": "",
+      "before_list": "",
+      "after_list": "",
+      "icon_alt": "icône conteant des outils de travail"
+    },
+    {
+      "id": 13,
+      "name": "Autres compétences",
+      "slug": "autres-competences",
+      "icon": "/images/icons/pencil.png",
+      "objectives": "",
+      "list": "",
+      "before_list": "",
+      "after_list": "",
+      "icon_alt": "icône représentant des outils"
+    }
+  ]
+}

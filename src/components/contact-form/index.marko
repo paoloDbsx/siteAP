@@ -1,0 +1,397 @@
+import info from "../../info.json";
+class {
+    onCreate() {
+        let randomCaptcha = "";
+        const randomCharacters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (let i = 0; i < 5; i++) {
+            randomCaptcha += randomCharacters.charAt(
+                Math.round(Math.random() * (randomCharacters.length - 1)))
+        }
+
+        this.state = {
+            randomCaptcha: randomCaptcha,
+            societyVisibility: true,
+            name: "",
+            firstName: "",
+            status: "",
+            company: "",
+            activity: "",
+            place: "",
+            email: "",
+            tel: "",
+            message: "",
+            captcha:"",
+            errorname: "",
+            errorfirstName: "",
+            errorstatus: "",
+            errorcompany: "",
+            erroractivity: "",
+            errorplace: "",
+            erroremail: "",
+            errortel: "",
+            errormessage: "",
+            errorcaptcha:"",
+        };
+    }
+    reloadCaptcha(){
+        let randomCaptcha = "";
+        const randomCharacters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (let i = 0; i < 5; i++) {
+            randomCaptcha += randomCharacters.charAt(
+                Math.round(Math.random() * (randomCharacters.length - 1)))
+        }
+        
+        this.state.randomCaptcha = randomCaptcha;
+    }
+    handleInputOnChange(event) {
+        const id = event.target.id;
+        let value = event.target.value;
+        if (id === "tel") {
+            value = value.replaceAll(" ", "");
+            if (!/^\d{10}$/.test(value)) {
+                this.state["error" + id] = "Format invalide";
+            } else {
+                this.state["error" + id] = "";
+                let newTel = "";
+                for (let i = 0; i < value.length; i += 2) {
+                    newTel += value.slice(i, i + 2) + " ";
+                }
+                value = newTel.slice(0, -1);
+            }
+        } else if (id === "email") {
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                this.state["error" + id] = "Format invalide";
+            } else {
+                this.state["error" + id] = "";
+            }
+        } else if (id === "status") {
+            if (!info.messageStatus.includes(value)) {
+                this.state["error" + id] = "Obligatoire";
+            } else {
+                this.state["error" + id] = "";
+                this.state.societyVisibility =
+                    value !== "Candidature" ? true : false;
+            }
+        } else if (id === "place") {
+            if (!info.places.includes(value)) {
+                this.state["error" + id] = "Obligatoire";
+            } else {
+                this.state["error" + id] = "";
+            }
+        } else {
+            value = value.replace(/[<>]/g, (match)=> {
+                return {
+                    "<": "&lt;",
+                    ">": "&gt;",
+                }[match];
+            });
+            if (value === "") {
+                this.state["error" + id] = "Obligatoire";
+            } else {
+                this.state["error" + id] = "";
+            }
+        }
+        this.state[id] = value;
+    }
+    handleSubmit() {
+        if (
+            !/^\d{10}$/.test(this.state.tel.replaceAll(" ", "")) ||
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email) ||
+            !info.messageStatus.includes(this.state.status)  ||
+            !this.state.name ||
+            !this.state.firstName ||
+            !this.state.status ||
+            (this.state.status !== "Candidature" &&
+                (!this.state.place ||
+                    !this.state.company ||
+                    !this.state.activity||
+                    !info.places.includes(this.state.place))) ||
+            !this.state.message
+        ) {
+            alert("Vérifiez vos informations !");
+        } else if(this.state.captcha !== this.state.randomCaptcha){
+            this.state.errorcaptcha = "Captcha invalide";
+            alert("Vérifiez vos informations !");
+        } else {
+            console.log(this.state, "good");
+        }
+    }
+}
+
+<section id="contact-section">
+    <max-width max="md">
+        <form>
+            <div class="col md-row input-group">
+                <label-input
+                    label=`Nom :`
+                    error=state.errorname
+                    id="name"
+                    class="basis-2"
+                >
+                    <input
+                        id="name"
+                        maxlength="80"
+                        required
+                        value=(state.name)
+                        on-change("handleInputOnChange")
+                        class=`input ${state.errorname && "input-error"}`
+                    >
+                </label-input>
+                <label-input
+                    label=`Prénom :`
+                    error=state.errorfirstName
+                    id="firstName"
+                    class="basis-2"
+                >
+                    <input
+                        id="firstName"
+                        maxlength="80"
+                        required
+                        value=(state.firstName)
+                        on-change("handleInputOnChange")
+                        class=`input ${state.errorfirstName && "input-error"}`
+                    >
+                </label-input>
+            </div>
+            <label-input
+                label=`Statut du message :`
+                error=state.errorstatus
+                id="status"
+            >
+                <select
+                    id="status"
+                    class=`input ${state.errorstatus && "input-error"}`
+                    value=(state.status)
+                    on-change("handleInputOnChange")
+                >
+                    <option value=""/>
+                    <for|option| of=info.messageStatus>
+                        <option value=option>
+                            ${option}
+                        </option>
+                    </for>
+                </select>
+            </label-input>
+            <if(state.societyVisibility)>
+                <div class=`col society`>
+                    <span class="society-span">
+                        Société
+                    </span>
+                    <label-input label=`Nom :` error=state.errorcompany id="company">
+                        <input
+                            id="company"
+                            maxlength="80"
+                            required
+                            value=(state.company)
+                            on-change("handleInputOnChange")
+                            class=`input ${state.errorcompany && "input-error"}`
+                        >
+                    </label-input>
+                    <label-input
+                        label=`Domaine d'activité :`
+                        error=state.erroractivity
+                        id="activity"
+                    >
+                        <input
+                            id="activity"
+                            maxlength="80"
+                            required
+                            value=(state.activity)
+                            on-change("handleInputOnChange")
+                            class=`input ${state.erroractivity && "input-error"}`
+                        >
+                    </label-input>
+                    <label-input
+                        label=`Région de l'intervention :`
+                        error=state.errorplace
+                        id="place"
+                    >
+                        <select
+                            id="place"
+                            class=`input ${state.errorplace && "input-error"}`
+                            value=(state.place)
+                            on-change("handleInputOnChange")
+                        >
+                            <option value=""/>
+                            <for|option| of=info.places>
+                                <option value=option>
+                                    ${option}
+                                </option>
+                            </for>
+                        </select>
+                    </label-input>
+                </div>
+            </if>
+            <div class="col md-row input-group">
+                <label-input
+                    label=`Adresse Email :`
+                    error=state.erroremail
+                    id="email"
+                    class="basis-2"
+                >
+                    <input
+                        id="email"
+                        type="email"
+                        maxlength="80"
+                        required
+                        value=(state.email)
+                        on-change("handleInputOnChange")
+                        class=`input ${state.erroremail && "input-error"}`
+                    >
+                </label-input>
+                <label-input
+                    label=`Numéro de téléphone :`
+                    error=state.errortel
+                    id="tel"
+                    class="basis-2"
+                >
+                    <input
+                        id="tel"
+                        type="tel"
+                        maxlength="80"
+                        required
+                        value=(state.tel)
+                        on-change("handleInputOnChange")
+                        class=`input ${state.errortel && "input-error"}`
+                    >
+                </label-input>
+            </div>
+            <label-input label=`Message :` error=state.errormessage id="message">
+                <textarea
+                    id="message"
+                    rows="10"
+                    placeholder="Veuillez rentrer votre message"
+                    required
+                    value=(state.message)
+                    on-change("handleInputOnChange")
+                    class=`input ${state.errormessage && "input-error"}`
+                />
+            </label-input>
+            <label-input label=`Veuillez réécrire ce que vous voyez :` error=state.errorcaptcha id="captcha">
+                <div class="row items-center captcha-div">
+                    <span class="captcha-button" on-click("reloadCaptcha")>&#x21BB;</span>
+                    <span class="captcha input">
+                        ${state.randomCaptcha}
+                    </span>
+                    <input
+                        id="captcha"
+                        required
+                        value=(state.captcha)
+                        on-change("handleInputOnChange")
+                        class=`input captcha-input ${state.errorcaptcha && "input-error"}`
+                    />
+                </div>
+            </label-input>
+            <button on-click("handleSubmit") class="form-button">
+                Envoyer
+            </button>
+        </form>
+    </max-width>
+</section>
+style {
+    #contact-section {
+        padding-block: 100px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        font-size: 18px;
+        color: #111827;
+    }
+    .society {
+        position: relative;
+        gap: 24px;
+        border: solid 1px #e5e7eb;
+        padding: 24px;
+        border-radius: 8px;
+        margin-top: 12px;
+    }
+    .society-hidden {
+        display: none;
+    }
+    .society-span {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        top: -12px;
+    }
+    .input-group {
+        gap: 12px;
+    }
+    .basis-2 {
+        flex-basis: 50%;
+    }
+    .input {
+        border: solid 1px #e5e7eb;
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 18px;
+        color: #111827;
+    }
+    .input-error {
+        border-color: red;
+    }
+    .captcha{
+        text-decoration: line-through;
+        font-style: italic;
+        user-select: none;
+        background:#e5e7eb;
+    }
+    .captcha-input{
+        width:100px;
+    }
+    .captcha-div{
+        gap: 24px;
+    }
+    .captcha-button{
+        background: none;
+        font-size: 25px;
+        border:none;
+        cursor: pointer;
+    }
+    .form-button{
+        padding: 9px 12px;
+        text-decoration: none;
+        border-radius: 8px;
+        transition-duration: 200ms;
+        background: white;
+        color: #025fae;
+        border: solid 2px #025fae;
+        font-size: 18px;
+        cursor: pointer;
+        width:100px;
+        margin-inline:auto;
+    }
+    .form-button:hover{
+        color: white;
+        background: #025fae;
+    }
+}
+
+
+/* 
+ const mailToLink = `
+            mailto:paolo.debaisieux@gmail.com?subject=${encodeURIComponent(
+                `Audit Process - ${this.state.values.status}`,
+            )}&body=${encodeURIComponent(`
+- Envoyé par : ${this.state.values.firstName} ${this.state.values.name}
+- Adresse email : <i>${this.state.values.email}</i>
+- Numéro de téléphone : <b>${this.state.values.tel}</b>
+${
+    this.state.values.status !== "Candidature"
+        ? `- Société : ${this.state.values.company}
+- Domaine d'activité : ${this.state.values.activity}
+- Lieu de l'intervention : ${this.state.values.place}`
+        : ""
+}
+<h2>${this.state.values.status}</h2>
+
+${this.state.values.message}
+          `)}`;
+
+            window.location.href = mailToLink;
+*/

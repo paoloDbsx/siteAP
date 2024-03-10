@@ -1,0 +1,181 @@
+class {
+    onCreate() {
+        this.state = {
+            navVisibility: false,
+        };
+    }
+    toggleNavVisibility() {
+        this.state.navVisibility = !this.state.navVisibility;
+    }
+}
+
+<macro|{ href, body }| name="nav-link">
+    <li>
+        <a href=`${href}` class="nav-a">
+            ${body}
+        </a>
+    </li>
+</macro>
+
+<header class=input.class>
+    <max-width>
+        <div class="row between-center header">
+            <nav
+                type="nav"
+                class=`lg-row lg-between-center nav ${state.navVisibility && "opened-nav"}`
+            >
+                <span class="close lg-hidden" on-click("toggleNavVisibility")>
+                    &#10005;
+                </span>
+                <a href="/">
+                    <img
+                        src=(input.isNavOff
+                            ? "/images/logos/Logo-Audit-Process.avif"
+                            : "/images/logos/Logo-Audit-Process-White.webp") ||
+                        "/images/logos/Logo-Audit-Process.avif"
+                        alt="Logo de l'entreprise Audit Process"
+                        class="nav-logo"
+                    >
+                </a>
+                <ul class="col lg-row lg-items-center nav-ul">
+                    <nav-link href="/" body="Accueil"/>
+                    <nav-link href="/#nos-services" body="Nos services"/>
+                    <nav-link
+                        href="/nos-services/realisation-de-formations"
+                        body="Formations"
+                    />
+                    <nav-link href="/#recrutement" body="Recrutement"/>
+                </ul>
+                <a href="/contactez-nous" class="nav-contact">
+                    Contactez-nous
+                </a>
+            </nav>
+            <span class="burger lg-hidden" on-click("toggleNavVisibility")>
+                &equiv;
+            </span>
+        </div>
+    </max-width>
+</header>
+style {
+    header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        z-index: 2;
+        background-color: white;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .header-index {
+        box-shadow: none;
+        background-color: transparent;
+        transition: 200ms;
+    }
+    .header {
+        font-weight: 500;
+        padding-inline: 16px;
+        font-size: 18px;
+        height: 68px;
+    }
+    .nav-logo {
+        height: 44px;
+    }
+    .nav {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 300px;
+        transition-duration: 300ms;
+        z-index: 3;
+        border-left: solid 8px black;
+        transform: translateX(100%);
+        height: 100%;
+    }
+    .opened-nav {
+        transform: translateX(0%);
+    }
+    .close {
+        color: black;
+        font-size: 40px;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+    .burger {
+        color: black;
+        font-size: 40px;
+    }
+    .nav-ul {
+        list-style: none;
+        gap: 12px;
+    }
+    .nav-contact {
+        padding: 9px 12px;
+        text-decoration: none;
+        border-radius: 8px;
+        transition-duration: 200ms;
+        color: #025fae;
+        border: solid 2px #025fae;  
+    }
+    .nav-contact-index {
+        border: solid 2px white;
+        color: white;
+    }
+    .nav-contact:hover {
+        background-color: #025fae;
+        color: white;   
+    }
+    .nav-contact-index:hover {
+        color: #025fae;
+        background-color: white;
+    }
+    .nav-a {
+        padding: 0 12px 21px 12px;
+        text-decoration: none;
+        height: 68px;
+        color: #6b7280;
+    }
+    .nav-a-index {
+          color: white;
+    }
+    .nav-a:hover {
+        border-bottom: solid 2px #94a3b8;
+        color: #1f2937;
+    }
+    .nav-a-index:hover {
+        color: white;
+        border-bottom: solid 2px white;
+    }
+    @media (min-width: 640px) {
+        .header {
+            padding-inline: 24px;
+        }
+    }
+    @media (min-width: 768px) {
+        .header {
+            padding-inline: 28px;
+        }
+    }
+    @media (min-width: 1024px) {
+        .header {
+            padding-inline: 32px;
+        }
+        .lg-hidden {
+            display: none;
+        }
+        .nav {
+            transition-duration: 0ms;
+            position: static;
+            border-left: none;
+            z-index: 0;
+            transform: translateX(0%);
+            height: 100%;
+            width: 100%;
+        }
+    }
+    @media (min-width: 1312px) {
+        .header {
+            padding-inline: 0;
+        }
+    }
+}

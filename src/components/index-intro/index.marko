@@ -1,0 +1,81 @@
+<section class="intro" id="accueil">
+    <div class="filter">
+        <max-width>
+            <div class="col full-center content">
+                <div class="circle animated-left">
+                    <svg
+                        width="300"
+                        height="300"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            cy="50%"
+                            cx="50%"
+                            r=120
+                            stroke="currentColor"
+                            stroke-width="10"
+                            fill="transparent"
+                        />
+                    </svg>
+                    <img
+                        src="/images/logos/Logo-Audit-Process-solo.webp"
+                        alt="Logo Audit Process"
+                        class="intro-logo"
+                    >
+                </div>
+                <h1 class="animated-right">
+                    Audit Process
+                </h1>
+                <p class="subtitle animated-bottom">
+                    Bureau d'études spécialisé dans le domaine de l'hydraulique
+                </p>
+            </div>
+        </max-width>
+    </div>
+</section>
+style {
+    .intro {
+        padding: 0;
+        width: 100%;
+        background: center / cover no-repeat
+            url("/images/others/water-drop.avif");
+    }
+    .filter {
+        z-index: 1;
+        width: 100%;
+        background: linear-gradient(to right, black, transparent);
+    }
+    .content {
+        height: 50vh;
+        color: white;
+        gap: 20px;
+    }
+    .circle {
+        position: relative;
+    }
+    .intro-logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-35%, -50%);
+        width: 35%;
+    }
+    h1 {
+        font-size: 96px;
+        line-height: 1;
+        text-transform: uppercase;
+        font-weight: 800;
+    }
+    .subtitle {
+        text-align: center;
+        width: 600px;
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: 600;
+    }
+    @media (min-width: 1024px) {
+        .content {
+            height: 100vh;
+        }
+    }
+}

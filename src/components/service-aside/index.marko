@@ -1,0 +1,45 @@
+import info from "../../info.json";
+
+class {
+    onCreate(){
+        this.state = {
+            param: null,
+        }
+    }
+    onMount(){
+        this.state.param = window.location.pathname.split("/")[2];
+    }
+}
+
+<aside>
+    <ul class="col">
+        <for|service| of=info.services>
+            <li key=service.id>
+                <a href=`/nos-services/${service.slug}` class=`${state.param === service.slug && "a-selected"}`>
+                    ${service.name}
+                </a>
+            </li>
+        </for>
+    </ul>
+</aside>
+style {
+    aside ul {
+        width: 300px;
+        gap: 24px;
+    }
+    aside a {
+        text-decoration: none;
+        color: #6b7280;
+    }
+    .a-selected{
+        color: #111827;
+        text-decoration: underline;
+    }
+    .a-selected:hover{
+        color: #111827;
+    }
+    aside a:hover {
+        color: #1f2937;
+        text-decoration: underline;
+    }
+}

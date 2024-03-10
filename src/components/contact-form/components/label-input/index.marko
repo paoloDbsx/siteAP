@@ -1,0 +1,19 @@
+<div class=`col input-label ${input.class}`>
+    <label for=input.id>
+        ${input.label}
+        <span class="label-error">
+            &nbsp;  ${input.error}
+        </span>
+    </label>
+    <${input.renderBody}/>
+</div>
+style {
+    .input-label {
+        gap: 12px;
+    }
+    .label-error {
+        font-size: 14px;
+        color: red;
+        font-style: italic;
+    }
+}
